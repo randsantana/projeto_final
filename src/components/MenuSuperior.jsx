@@ -9,14 +9,18 @@ const MenuSuperior = () => {
           <li className="nav-item">
             <Link to="/" className="nav-link">Incluir Tarefa</Link>
           </li>
-          
+
           <li className="nav-item">
             <Link to="/manutencao" className="nav-link">Manutenção de Tarefas</Link>
           </li>
           <li className="nav-item">
             <Link to="/user" className="nav-link">Cadastrar Usuário</Link>
           </li>
-          
+          <li className="nav-item">
+            <button className="btn btn-sm btn-outline-secondary">
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
