@@ -8,7 +8,8 @@ const Cadastrar_Usuario = () => {
 
   const salvar = async (campos) => {
     try {
-      const response = await api.post("usuarios", campos);
+      //vamos enviar os dados digitados para a rota /user do backend
+      const response = await api.post("user/createUsers", campos);
       setAviso(`Usuário cadastrado com sucesso!"`);
       reset();
     } catch (error) {
@@ -47,9 +48,9 @@ const Cadastrar_Usuario = () => {
             <input
               type="password"
               className="form-control"
-              id="senha"
+              id="password"
               required
-              {...register("senha")}
+              {...register("password")}
             />
           </div>
                    
