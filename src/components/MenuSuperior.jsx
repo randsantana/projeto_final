@@ -7,7 +7,7 @@ const MenuSuperior = () => {
         <Link to="/" className="navbar-brand">Controle de Tarefas</Link>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/" className="nav-link">Incluir Tarefa</Link>
+            <Link to="/" className="nav-link">Incluir Produto</Link>
           </li>
 
           <li className="nav-item">
