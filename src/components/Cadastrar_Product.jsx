@@ -2,14 +2,14 @@ import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
 
-const Cadastrar_tarefa = () => {
+const Cadastrar_Product = () => {
   const { register, handleSubmit, reset} = useForm();
   const [aviso, setAviso] = useState("");
 
   const salvar = async (campos) => {
     try {
       const response = await api.post("product/createProduct", campos);
-      setAviso(`produto cadastrada com sucesso!"`);
+      setAviso(`Produto cadastrada com sucesso!"`);
       reset();
     } catch (error) {
       setAviso("Erro ao cadastrar produto!");
@@ -19,10 +19,10 @@ const Cadastrar_tarefa = () => {
   return (
     <div className="container-fluid bg-dark text-light min-vh-100 d-flex align-items-center">
       <div className="container p-5 bg-light text-dark rounded">
-        <h4 className="fst-italic mb-3">Cadastrar produto</h4>
+        <h4 className="fst-italic mb-3">Cadastrar Produto</h4>
         <form onSubmit={handleSubmit(salvar)}>
           <div className="form-group">
-            <label htmlFor="name">nome</label>
+            <label htmlFor="name">Nome</label>
             <input
               type="text"
               className="form-control"
@@ -43,13 +43,13 @@ const Cadastrar_tarefa = () => {
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="price">preço:</label>
+            <label htmlFor="price">Preço:</label>
             <input
               type="number"
               className="form-control"
               id="price"
               required
-              ste="0.01"
+              step="0.01"
               {...register("price")}
             />
           </div>
@@ -69,4 +69,5 @@ const Cadastrar_tarefa = () => {
     </div>
   );
 };
-export default Cadastrar_tarefa;
+
+export default Cadastrar_Product;
