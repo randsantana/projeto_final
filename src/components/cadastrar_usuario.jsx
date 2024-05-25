@@ -8,8 +8,7 @@ const Cadastrar_Usuario = () => {
 
   const salvar = async (campos) => {
     try {
-      //Vamos enviar os dados digitados para a rota /user do backend
-      const response = await api.post("user/createUsers", campos);
+      const response = await api.post("usuarios", campos);
       setAviso(`Usuário cadastrado com sucesso!"`);
       reset();
     } catch (error) {
