@@ -11,7 +11,7 @@ const ManutencaoProduct = () => {
 
     const obterLista = async () => {
         try{
-            const lista = await api.get("product/createProduct");
+            const lista = await api.get("product/all");
             setProduct(lista.data);
         }catch(error){
             alert(`Erro: ..Não foi possível obter os dados: ${error}`);
@@ -95,12 +95,13 @@ const alterar = async (id,titulo,index) => {
             <thead>
                 <tr>
                     <th>Cód.</th>
-                    <th>Titulo</th>
                     <th>Descrição</th>
+                    <th>Preço</th>
                     <th>Status</th>
                     <th>Estoque</th>
                     <th>Data entrada</th>
                     <th>Data saida</th>
+                
                 </tr>
             </thead>
             <tbody>
@@ -108,7 +109,7 @@ const alterar = async (id,titulo,index) => {
                     <ItemLista
                         key={Product.id}
                         id={Product.id}
-                        titulo={Product.titulo}
+                        titulo={Product.price}
                         descricao={Product.descricao}
                         Estoque={Product.Estoque}
                         data_entrada={Product.data_entrada}
