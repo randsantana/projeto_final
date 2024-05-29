@@ -2,24 +2,24 @@ import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
 
-const Cadastrar_Product = () => {
+const Cadastrar_Barber = () => {
   const { register, handleSubmit, reset} = useForm();
   const [aviso, setAviso] = useState("");
 
   const salvar = async (campos) => {
     try {
-      const response = await api.post("product/createProduct", campos);
-      setAviso(`Corte cadastrada com sucesso!"`);
+      const response = await api.post("barber/createBarber", campos);
+      setAviso(`Barbeiro cadastrado(a) com sucesso!"`);
       reset();
     } catch (error) {
-      setAviso("Erro ao cadastrar Corte!");
+      setAviso("Erro ao cadastrar Barbeiro(a)!");
     }
   };
 
   return (
     <div className="container-fluid bg-dark text-light min-vh-100 d-flex align-items-center">
       <div className="container p-5 bg-light text-dark rounded">
-        <h4 className="fst-italic mb-3">Cadastrar Corte</h4>
+        <h4 className="fst-italic mb-3">Cadastrar Barbeiro</h4>
         <form onSubmit={handleSubmit(salvar)}>
           <div className="form-group">
             <label htmlFor="name">Nome</label>
@@ -33,24 +33,13 @@ const Cadastrar_Product = () => {
             />
           </div>
           <div className="form-group mt-2">
-            <label htmlFor="description">Descrição</label>
+            <label htmlFor="img">Descrição</label>
             <input
               type="text"
               className="form-control"
-              id="description"
+              id="img"
               required
-              {...register("description")}
-            />
-          </div>
-          <div className="form-group mt-2">
-            <label htmlFor="price">Preço:</label>
-            <input
-              type="number"
-              className="form-control"
-              id="price"
-              required
-              step="0.01"
-              {...register("price")}
+              {...register("img")}
             />
           </div>
           <input
@@ -70,4 +59,4 @@ const Cadastrar_Product = () => {
   );
 };
 
-export default Cadastrar_Product;
+export default Cadastrar_Barber;

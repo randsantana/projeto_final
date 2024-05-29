@@ -36,41 +36,40 @@ const filtrarLista = async (campos) => {
     }
 }
 
-const excluir = async(id,titulo) => {
-    if(!window.confirm(`Confirma a exclusão do produto ${titulo}?`)){
+const excluir = async(id,name) => {
+    if(!window.confirm(`Confirma a exclusão do produto ${name}?`)){
         return;
     }
     try{
         console.log("id é:"+id)
-        await api.delete(`product/${id}`);
+        await api.delete(`product/deleteProduct/${id}`);
         //formar uma nova lista de tarefas sem a tarefa que foi excluida
         setProduct(Product.filter(Product => Product.id !== id));
         location.reload();
     }catch(error){
-        alert(`Erro: ..Não foi possível excluir o produto ${titulo}: ${error}`);
+        alert(`Erro: ..Não foi possível excluir o produto ${name}: ${error}`);
     }
 }
 
 //alterar os registros
-const alterar = async (id,titulo,index) => {
-    const novoStatus = prompt(`Digite o novo status do produto ${titulo}`);
+const alterar = async (id,name,index) => {
+    const novoStatus = prompt(`Digite o novo status do produto ${name}`);
     if (novoStatus == "" ) {
         alert('Digite um status válido!(status em branco)')
         return;
     }
     try{//captura os erros 
         //chamando o backend e passando os dados
-        await api.put(`Product/${id}`,{status: novoStatus});
-        
+        await api.put(`product/updateProduct/${id}`,{name: novoStatus});
         const ProductAtualizadas = [...Product];
         const indiceProduct = ProductAtualizadas.find(Product => Product.id === id);
         console.log("indice Produto:"+indiceProduct);
-        ProductAtualizadas[indiceProduct.id].status = novoStatus;
+        ProductAtualizadas[indiceProduct.id].name = novoStatus;
         setProduct(ProductAtualizadas);
         obterLista();
         location.reload();
     }catch(error){
-        alert(`Erro: ..Não foi possível alterar o produto ${titulo}: ${error}`);
+        alert(`Erro: ..Não foi possível alterar o produto ${name}: ${error}`);
     }
 }
 
@@ -95,12 +94,10 @@ const alterar = async (id,titulo,index) => {
             <thead>
                 <tr>
                     <th>Cód.</th>
+                    <th>Corte</th>
                     <th>Descrição</th>
                     <th>Preço</th>
-                    <th>Status</th>
-                    <th>Estoque</th>
-                    <th>Data entrada</th>
-                    <th>Data saida</th>
+                    <th>Ações</th>
                 
                 </tr>
             </thead>
@@ -109,13 +106,11 @@ const alterar = async (id,titulo,index) => {
                     <ItemLista
                         key={Product.id}
                         id={Product.id}
-                        titulo={Product.price}
-                        descricao={Product.descricao}
-                        Estoque={Product.Estoque}
-                        data_entrada={Product.data_entrada}
-                        Data_saida={Product.Data_saida}
-                        excluirClick={()=>excluir(Product.id,Product.titulo)}
-                        alterarClick={()=>alterar(Product.id,Product.titulo)}
+                        name={Product.name}
+                        description={Product.description}
+                        price={Product.price}
+                        excluirClick={()=>excluir(Product.id,Product.name)}
+                        alterarClick={()=>alterar(Product.id,Product.name)}
                     />
                 ))}
             </tbody>
