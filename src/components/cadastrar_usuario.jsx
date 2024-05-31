@@ -8,7 +8,7 @@ const Cadastrar_Usuario = () => {
 
   const salvar = async (campos) => {
     try {
-      const response = await api.post("usuarios", campos);
+      const response = await api.post("user/createUsers", campos);
       setAviso(`Usuário cadastrado com sucesso!"`);
       reset();
     } catch (error) {

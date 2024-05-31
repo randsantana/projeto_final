@@ -18,7 +18,7 @@ const Cadastrar_Barber = () => {
 
   return (
     <div className="container-fluid bg-dark text-light min-vh-100 d-flex align-items-center">
-      <div className="container p-5 bg-light text-dark rounded">
+      <div className="container ">
         <h4 className="fst-italic mb-3">Cadastrar Barbeiro</h4>
         <form onSubmit={handleSubmit(salvar)}>
           <div className="form-group">
@@ -30,16 +30,6 @@ const Cadastrar_Barber = () => {
               required
               autoFocus
               {...register("name")}
-            />
-          </div>
-          <div className="form-group mt-2">
-            <label htmlFor="img">Descrição</label>
-            <input
-              type="text"
-              className="form-control"
-              id="img"
-              required
-              {...register("img")}
             />
           </div>
           <input

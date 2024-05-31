@@ -75,11 +75,11 @@ const alterar = async (id,name,index) => {
 
     return (
        <div className="container">
-        <div className="row">
-            <div className="col-sm-7">
-                <h4 className="fst-italic mt-3">Manutenção de Produto</h4>
+        <div className="row ">
+            <div className="col-sm-7 ">
+                <h4 className="fst-italic mt-3 ">Manutenção de Produto</h4>
             </div>
-            <div className="col-sm-5">
+            <div className="col-sm-5 ">
                 <form onSubmit={handleSubmit(filtrarLista)}>
                     <div className="input-group mt-3">
                         <input type="text" className="form-control" placeholder="Titulo" required {...register("palavra")} />
@@ -90,7 +90,7 @@ const alterar = async (id,name,index) => {
             </div>
         </div>
 
-        <table className="table table-striped mt-3">
+        <table className="table table-striped mt-3 ">
             <thead>
                 <tr>
                     <th>Cód.</th>

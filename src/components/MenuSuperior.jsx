@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const MenuSuperior = () => {
   return (
-    <nav className="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
+    <nav className="navbar navbar-expand-sm ">
       <div className="container">
-        <Link to="/" className="navbar-brand">Controle de Produto</Link>
+        <Link to="/" className="navbar-brand ">Controle de Produto</Link>
         <ul className="navbar-nav">
         <li className="nav-item">
             <Link to="/barber" className="nav-link">Incluir Barbeiro</Link>
