@@ -19,6 +19,9 @@ const MenuSuperior = () => {
             <Link to="/user" className="nav-link">Cadastrar Usuário</Link>
           </li>
           <li className="nav-item">
+            <Link to="/agendamento" className="nav-link">Agendamento</Link>
+          </li>
+          <li className="nav-item">
             <button className="btn btn-sm btn-outline-secondary">
               Logout
             </button>

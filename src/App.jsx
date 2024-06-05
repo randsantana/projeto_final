@@ -4,6 +4,7 @@ import Manutencao_Product from './components/ManutencaoProduct';
 import FormularioLogin from './components/login';
 import Cadastrar_Usuarios from './components/cadastrar_usuario';
 import Cadastrar_Barbeiro from './components/Cadastrar_Barbeiro';
+import Agendamento from './components/Agendamento';
 import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider, useAuth } from './components/AuthProvider';
@@ -35,6 +36,7 @@ const RoutesWithAuth = () => {
         <Route path="/Manutencao" element={<ProtectedRoute><Manutencao_Product /></ProtectedRoute>} />
         <Route path="/user" element={<ProtectedRoute><Cadastrar_Usuarios /></ProtectedRoute>} />
         <Route path="/Barber" element={<ProtectedRoute><Cadastrar_Barbeiro /></ProtectedRoute>} />
+        <Route path="/Agendamento" element={<ProtectedRoute><Agendamento /></ProtectedRoute>} />
 
       </Routes>
     </Router>
